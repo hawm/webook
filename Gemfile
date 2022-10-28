@@ -74,6 +74,9 @@ group :development do
   # For VSCode debug
   gem 'ruby-debug-ide'
   gem 'debase'
+
+  gem 'rubocop'
+  gem 'rubocop-rails'
 end
 
 group :test do
