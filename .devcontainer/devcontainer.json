@@ -3,8 +3,14 @@
 // Update the VARIANT arg in docker-compose.yml to pick a Ruby version
 {
 	"name": "Ruby on Rails",
-	"dockerComposeFile": "docker-compose.yml",
-	"service": "app",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": "..",
+		"args": {
+			"VARIANT": "2.7",
+			"NODE_VERSION": "lts/*"
+		}
+	},
 	"workspaceFolder": "/workspace",
 
 	// Configure tool-specific properties.
