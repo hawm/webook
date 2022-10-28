@@ -70,6 +70,10 @@ group :development do
 
   # ERB formatter
   gem 'htmlbeautifier'
+
+  # For VSCode debug
+  gem 'ruby-debug-ide'
+  gem 'debase'
 end
 
 group :test do
