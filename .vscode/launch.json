@@ -13,8 +13,6 @@
                 "server"
             ],
             "useBundler": true,
-            "pathToBundler": "bundle"
-
         }
     ]
 }
