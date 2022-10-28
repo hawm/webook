@@ -71,6 +71,9 @@ group :development do
   # ERB formatter
   gem 'htmlbeautifier'
 
+  # Schema info 
+  gem 'annotate'
+
   # For VSCode debug
   gem 'ruby-debug-ide'
   gem 'debase'
