@@ -1,0 +1,39 @@
+<div data-controller='document-uploader'
+  data-document-uploader-hidden-class='d-none'
+  data-document-uploader-src-value=<%= default_src if default_src %>>
+  <div data-document-uploader-target='indicator'>
+    <span class='badge text-bg-primary'>PDF</span>
+    <button type='button' class='btn btn-link btn-sm'
+    data-action='document-uploader#viewDocument'
+    >
+      View
+    </button>
+    <button type='button' class='btn btn-link btn-sm'
+    data-document-uploader-reset-param='true'
+    data-action='document-uploader#updateDocument'
+    >
+      Reset
+    </button>
+    <button type='button' class='btn btn-link btn-sm'
+    data-document-uploader-delete-param='true'
+    data-action='document-uploader#updateDocument'
+    >
+      Delete
+    </button>
+  </div>
+  <div class='input-group' data-document-uploader-target='uploader'>
+    <%= form.label :document, 'PDF', class: 'input-group-text' %>
+    <%= form.file_field :document , accept:'.pdf', class: 'form-control ',
+    'data-document-uploader-target': 'input',
+    'data-action': 'change->document-uploader#updateDocument'
+    %>
+    <button class="btn btn-outline-secondary rounded-end" type="button"
+    data-document-uploader-reset-param='true'
+    data-action='document-uploader#updateDocument'>
+      Reset
+    </button>
+    <%= form.check_box :delete_document, class: 'd-none',
+    'data-document-uploader-target': 'delete'
+    %>
+  </div>
+</div>

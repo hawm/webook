@@ -5,7 +5,6 @@
     "ruby.lint": {
         "rubocop": {
             "useBundler": true,
-            "rails": true
         },
     },
     "ruby.format": "rubocop"

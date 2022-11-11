@@ -1,2 +1,17 @@
+$enable-gradients: true;
+$enable-shadows: true;
+
 // https://github.com/twbs/bootstrap-rubygem
 @import "bootstrap";
+
+.ratio-2x3 {
+  @include media-breakpoint-up(md) {
+    --bs-aspect-ratio: 150%
+  }
+}
+
+.turbo-progress-bar {
+  @extend .progress-bar;
+  @extend .bg-danger;
+  @extend .progress-bar-striped;
+}

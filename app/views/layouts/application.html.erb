@@ -9,7 +9,8 @@
     <%= javascript_importmap_tags %>
   </head>
   <body>
-    <div class="container">
+    <div class="container min-vh-100 shadow-lg">
+      <%= render 'shared/header'%>
       <%= yield %>
     </div>
   </body>

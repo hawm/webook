@@ -1,0 +1,35 @@
+<div data-controller='image-uploader'>
+  <div data-image-uploader-target='cover' 
+  data-action='click->image-uploader#openFileSelector'>
+  <%= render 'shared/book_cover', src: default_src, 
+    attrs: {'data-image-uploader-target': 'img'}%>
+  </div>
+  <%= form.file_field name, 
+      accept:'image/png,image/jpeg', 
+      class: 'd-none',
+      'data-image-uploader-target': 'input',
+      'data-action': 'change->image-uploader#updateImage'
+    %>
+  <%= form.check_box :delete_cover_image, 
+      class: 'd-none', 
+      'data-image-uploader-target': 'delete' 
+    %>
+  <div class='d-grid gap-1 mt-2'>
+    <button type='button' 
+    class="btn btn-secondary btn-sm"
+    data-image-uploader-target='deleteBtn'
+    data-action='image-uploader#updateImage'
+    data-image-uploader-delete-param='true'
+    >
+      Delete
+    </button>
+    <button type='button' 
+    class="btn btn-secondary btn-sm"
+    data-image-uploader-target='resetBtn'
+    data-action='image-uploader#updateImage'
+    data-image-uploader-reset-param='true'
+    >
+      Reset
+    </button>
+  </div>
+</div>

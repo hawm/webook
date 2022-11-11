@@ -1,0 +1,33 @@
+<% if simple ||= false %>
+  <div id="<%= dom_id book %>" class='col'>
+    <div>
+      <%= link_to book do %>
+        <%= render "shared/book_cover", 
+        src: book.cover_image.persisted? ? url_for(book.cover_image): false %>
+      <% end %>
+      <%= link_to book.name, book, 
+      class: 'link-primary d-block text-decoration-none text-truncate' %>
+      <div class='text-truncate'>
+        <%= book.author.name if book.author && !hide_author ||= false %>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <div class='row'>
+    <div class='col-3'>
+        <%= render "shared/book_cover", 
+        src: book.cover_image.persisted? ? url_for(book.cover_image): false %>
+    </div>
+    <div class='col'>
+      <h1><%= book.name %></h1>
+      <p>Author: <%= link_to book.author.name, book.author if book.author %></p>
+      <p>Description: <%= book.description %></p>
+      <p>Document: <%= link_to 'PDF', book.document, class: 'badge text-bg-primary' if book.document.persisted? %></p>
+    </div>
+    <div class='col-3'>
+      <div class='d-grid gap-2'>
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+<% end %>

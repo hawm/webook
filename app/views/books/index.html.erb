@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<div>
+<h1 class='d-inline'>Books</h1>
+<%= link_to "Upload", new_book_path, class: "btn btn-primary float-end" %>
+</div>
+<div id="books">
+  <div class='row row-cols-6 g-2'>
+  <% @books.each do |book| %>
+    <%= render book, simple: true %>
+  <% end %>
+  </div>
+</div>
+

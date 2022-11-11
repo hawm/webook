@@ -1,0 +1,48 @@
+<%= form_with(model: book) do |form| %>
+  <% if book.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
+      <ul>
+        <% book.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class='row'>
+    <div class='col-3'>
+      <%= render "shared/image_uploader", form: form, 
+      name: 'cover_image', 
+      default_src: book.cover_image.persisted? && url_for(book.cover_image) %>
+    </div>
+    <div class='col'>
+      <div class='mb-3'>
+        <%= form.label :name, class:'form-label' %>
+        <%= form.text_field :name, class: 'form-control' %>
+      </div>
+      <div class='mb-3'>
+        <%= form.fields_for :author do |author_form| %>
+          <%= author_form.label :name, 'Author', class:'form-label' %>
+          <%= author_form.text_field :name, class: 'form-control'%>
+        <% end %>
+      </div>
+      <div class='mb-3'>
+        <%= form.label :description, class:'form-label'%>
+        <%= form.text_area :description, class: 'form-control'%>
+      </div>
+      <div class='mb-3'>
+        <%= render 'shared/document_uploader', form: form, 
+        default_src: !book.document.blank?  && url_for(book.document)
+        %>
+      </div>
+      <div class='d-grid gap-2'>
+        <%= form.submit "Save", class:'btn btn-primary' %>
+      </div>
+    </div>
+    <div class='col-3'>
+      <div class='d-grid gap-2'>
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+<% end %>

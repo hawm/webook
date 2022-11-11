@@ -1,0 +1,9 @@
+<p style="color: green"><%= notice %></p>
+<h1 class='d-inline'>Authors</h1>
+<ul id="authors">
+  <% @authors.each do |author| %>
+    <li id="<%= dom_id author %>">
+      <%= link_to "#{author.name}(#{author.books.count})", author %>
+    </li>
+  <% end %>
+</ul >
