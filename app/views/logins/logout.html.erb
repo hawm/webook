@@ -1,0 +1,9 @@
+<div class='w-50 mx-auto'>
+  <%= form_with do |form| %>
+    <p class='fs-1'>Are you sure to logout?</p>
+    <%= form.button 'Logout', class: 'btn btn-primary' %>
+    <button type='button' class='btn btn-light' onclick='history.back()'>
+        Back
+    </button>
+  <% end %>
+</div>

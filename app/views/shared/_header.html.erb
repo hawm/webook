@@ -1,8 +1,21 @@
-<ul class='nav bg-primary bg-gradient rounded-bottom shadow'>
+<ul class='nav bg-primary bg-gradient rounded-bottom shadow d-flex'>
   <li class='nav-item'>
     <%= link_to 'Books', books_path, class:'nav-link text-white'%>
   </li>
   <li class='nav-item'>
     <%= link_to 'Authors', authors_path, class: 'nav-link text-white' %>
+  </li>
+  <li class='nav-item'>
+    <%= link_to 'Users', users_path, class: 'nav-link text-white'%>
+  </li>
+  <li class='nav-item ms-auto'>
+    <% if current_user %>
+    <div class='nav-link'>
+      <%= link_to "[#{current_user.username}] : ", user_path(current_user), class: 'text-decoration-none text-white'%>
+      <%= link_to 'Logout', logout_path, class: 'text-decoration-none text-white'%>
+    </div>
+    <% else%>
+      <%= link_to 'Login', login_path, class: 'nav-link text-white'%>
+    <% end %>
   </li>
 </ul>

@@ -1,0 +1,15 @@
+<p style="color: red"><%= alert %></p>
+
+<div class='w-50 mx-auto'>
+  <%= form_with model: @user, url: login_path do |form|%>
+    <div class='mb-3'>
+      <%= form.label :username, class: 'form-label' %>
+      <%= form.text_field :username, class: 'form-control'%>
+    </div>
+    <div class='mb-3'>
+      <%= form.label :password, class: 'form-label' %>
+      <%= form.password_field :password, class:'form-control' %>
+    </div>
+    <%= form.button 'Login', class:'btn btn-primary'%>
+  <% end%>
+</div>

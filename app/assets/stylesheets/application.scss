@@ -15,3 +15,21 @@ $enable-shadows: true;
   @extend .bg-danger;
   @extend .progress-bar-striped;
 }
+
+.notice {
+  @extend .alert;
+  @extend .alert-primary;
+}
+
+.alert {
+  @extend .alert;
+  @extend .alert-danger;
+}
+
+.book-title {
+  &:hover {
+    @extend .bg-primary;
+    @extend .bg-opacity-75;
+    @extend .text-white;
+  }
+}
