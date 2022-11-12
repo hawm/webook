@@ -4,14 +4,14 @@ class LoginsController < ApplicationController
   end
 
   def create
-    @user = User.find_or_initialize_by(username: user_params[:username])
+    @user = authenticate
 
     if @user&.authenticate(user_params[:password])&.present?
       session[:current_user_id] = @user.id
       redirect_to root_url, notice: 'You have successfully logged in.'
     else
       flash[:alert] = 'Your username/password is invalid'
-      render :index, status: :unprocessable_entity
+      render :login, status: :unprocessable_entity
     end
   end
 
@@ -29,4 +29,9 @@ class LoginsController < ApplicationController
     params.fetch(:user, {}).permit(:username, :password)
   end
 
+  def authenticate
+    User.find_or_initialize_by(username: user_params[:username]) do |u|
+      u.skip_username_validations = true
+    end
+  end
 end
