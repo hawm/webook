@@ -17,13 +17,11 @@ $enable-shadows: true;
 }
 
 .notice {
-  @extend .alert;
-  @extend .alert-primary;
+  @extend .text-success;
 }
 
 .alert {
-  @extend .alert;
-  @extend .alert-danger;
+  @extend .text-danger;
 }
 
 .book-title {
