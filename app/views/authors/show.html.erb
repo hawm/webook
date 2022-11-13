@@ -6,8 +6,8 @@
   <div class='col-3'>
     <% if current_user&.is_admin %>
       <div class='d-grid gap-2'>
-        <%= link_to "Back to authors", authors_path, class:'btn btn-link' %>
-        <%= button_to "Destroy this author", @author, method: :delete, class:'w-100 btn btn-link' %>
+        <%= link_to "Back to authors", authors_path, class:'btn btn-light' %>
+        <%= button_to "Destroy this author", @author, method: :delete, class:'w-100 btn btn-danger' %>
       </div>
     <% end %>
   </div>
