@@ -27,6 +27,7 @@
         <%= link_to 'Logout', logout_path, class: 'text-decoration-none text-white'%>
       </div>
     <% else%>
+      <%= link_to 'Register', new_user_path, class: 'text-decoration-none text-white'%>
       <%= link_to 'Login', login_path, class: 'text-decoration-none text-white'%>
     <% end %>
   </div>

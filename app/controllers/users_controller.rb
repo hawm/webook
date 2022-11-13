@@ -23,6 +23,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        session[:current_user_id] = @user.id unless helpers.current_user&.is_admin
         format.html { redirect_to user_url(@user), notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else

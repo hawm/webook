@@ -1,8 +1,6 @@
 <h1>Editing user</h1>
-
-<%= render "form", user: @user, admin: true  do %>
-  <%= link_to "Show this user", @user, class: 'btn btn-light' %>
-  <%= link_to "Back to users", users_path, class: 'btn btn-light' %>
+<%= render "form", user: @user do %>
+  <% if current_user&.is_admin %>
+    <%= link_to "Show this user", @user, class: 'btn btn-light' %>
+  <% end %>
 <% end %>
-
-
