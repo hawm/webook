@@ -30,8 +30,9 @@ class Book < ApplicationRecord
     document.purge if delete_document == '1'
   end
 
+  validates :name, length: { minimum: 3, maximum: 50 }
+
   def autosave_associated_records_for_author
     self.author = Author.find_or_create_by(name: author.name.strip) if author.name.present?
   end
-
 end
