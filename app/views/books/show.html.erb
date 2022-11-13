@@ -1,6 +1,8 @@
 <p style="color: green"><%= notice %></p>
 <%= render @book do %>
   <%= link_to "Back to books", books_path, class:'btn btn-light' %>
-  <%= link_to 'Edit this book', edit_book_path, class:'btn btn-light' %>
-  <%= button_to 'Delete this book', @book, method: :delete, class: 'w-100 btn btn-danger'%>
+  <% if current_user&.is_admin %>
+    <%= link_to 'Edit this book', edit_book_path, class:'btn btn-light' %>
+    <%= button_to 'Delete this book', @book, method: :delete, class: 'w-100 btn btn-danger'%>
+  <% end %>
 <% end %>

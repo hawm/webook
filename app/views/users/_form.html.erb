@@ -22,6 +22,12 @@
       <%= form.label :password_confirmation, class:'form-label'%>
       <%= form.password_field :password_confirmation, class: 'form-control' %>
     </div>
+    <% if admin ||=  false %>
+      <div class='mb-3'>
+        <%= form.check_box :is_admin, class:'form-check-input' %>
+        <%= form.label :is_admin, class: 'form-check-label' %>
+      </div>
+    <% end %>
     <%= form.button 'Save', class:'btn btn-primary'%>
     <%= yield %>
   </div>
