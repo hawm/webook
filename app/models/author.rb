@@ -10,5 +10,4 @@
 #
 class Author < ApplicationRecord
     has_many :books, dependent: :destroy
-    validates :name, length: { minimum: 3, maximum: 10 }
 end
