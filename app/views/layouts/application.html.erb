@@ -8,10 +8,12 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-  <body>
-    <div class="container min-vh-100 shadow-lg">
+  <body class='bg-secondary'>
+    <div class="container min-vh-100 pb-5">
       <%= render 'shared/header'%>
-      <%= yield %>
+      <div class='border border-5 shadow rounded bg-light mt-3 p-3'>
+        <%= yield %>
+      </div>
     </div>
   </body>
 </html>
