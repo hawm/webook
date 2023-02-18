@@ -10,8 +10,8 @@ class LoginsController < ApplicationController
       session[:current_user_id] = @user.id
       redirect_to root_url, notice: 'You have successfully logged in.'
     else
-      flash[:alert] = 'Your username/password is invalid'
-      render :login, status: :unprocessable_entity
+      redirect_to login, status: :unauthorized,
+                         alert: 'Your username/password is invalid'
     end
   end
 
