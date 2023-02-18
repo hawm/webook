@@ -3,7 +3,12 @@ class BooksController < ApplicationController
 
   # GET /books or /books.json
   def index
-    @books = Book.all
+    search = params.fetch(:s, false)
+    @books = if search
+               Book.where('name LIKE ?', "%#{Book.sanitize_sql_like(search)}%")
+             else
+               Book.all
+             end
   end
 
   # GET /books/1 or /books/1.json
