@@ -20,7 +20,7 @@
 class Book < ApplicationRecord
   has_one_attached :document, dependent: :destory
   has_one_attached :cover_image, dependent: :destory
-  belongs_to :author
+  belongs_to :author, touch: true
   accepts_nested_attributes_for :author
 
   attr_accessor :delete_cover_image, :delete_document
