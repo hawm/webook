@@ -10,7 +10,7 @@ export default class extends Controller {
 
 
   setImg(src) {
-    this.imgTarget.src = src || this.defaumtImgSrc
+    this.imgTarget.src = src || this.imgTarget.getAttribute('placeholder')
   }
 
   clearInput() {

@@ -2,6 +2,6 @@
 border-bottom border-5 rounded bg-secondary bg-opacity-25'>
 <%= image_tag src || '200x300.png', 
         (attrs ||= {}).merge!(class: 'h-auto top-50 start-50 translate-middle
-        border-start border-end')  %>
+        border-start border-end', placeholder: (image_path '200x300.png'))  %>
 </div>
 
