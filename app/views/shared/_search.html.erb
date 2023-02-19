@@ -1,4 +1,5 @@
-  <form class='' method='get' action=<%= books_path %>>
-    <input type='search' placeholder='Search...' name='s'
+  
+<form class='' method='get' action=<%= books_path %>>
+  <input  name='s' type='search' placeholder=<%= hints ||= 'search...'%>
     class='form-control <%= klass ||= '' %>'>
-  </form>
+</form>
