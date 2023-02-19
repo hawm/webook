@@ -3,7 +3,6 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="image-uploader"
 export default class extends Controller {
   static targets = ['img', 'input', 'resetBtn', 'delete', 'deleteBtn']
-  static placeholder = 'https://via.placeholder.com/200x300?text=Empty'
 
   connect() {
     this.defaumtImgSrc = this.imgTarget.src
@@ -11,7 +10,7 @@ export default class extends Controller {
 
 
   setImg(src) {
-    this.imgTarget.src = src || this.constructor.placeholder
+    this.imgTarget.src = src || this.defaumtImgSrc
   }
 
   clearInput() {
