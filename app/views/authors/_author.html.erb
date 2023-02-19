@@ -1,7 +1,5 @@
-<h1><%= author.name %>'s Books</h1>
+<h1><%= author.name %>'s books</h1>
 
 <div class='row row-cols-4 g-2'>
-  <% author.books.each do |book| %>
-    <%= render book, simple: true, hide_author: true %>
-  <% end %>
+  <%= render author.books, simple: true, hide_author: true %>
 </div>
