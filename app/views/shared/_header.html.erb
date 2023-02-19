@@ -19,8 +19,8 @@
   <%= render 'shared/search', klass: 'form-control-sm'%>
   <div class='px-3'>
     <% if current_user %>
-      <div class=''>
-        <%= link_to "[#{current_user.username}] : ", user_path(current_user), class: 'text-decoration-none text-white'%>
+      <div>
+        <%= link_to "#{current_user.username}", user_path(current_user), class: 'text-white'%>
         <%= link_to 'Logout', logout_path, class: 'text-decoration-none text-white'%>
       </div>
     <% else%>
