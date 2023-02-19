@@ -17,7 +17,7 @@
     <div class='row'>
       <div class='col-3'>
         <%= render "shared/book_cover", 
-        src: book.cover_image.persisted? ? url_for(book.cover_image): false %>
+        src: book.cover_image.present? ? url_for(book.cover_image): false %>
       </div>
       <div class='col'>
         <h1><%= book.name %></h1>
