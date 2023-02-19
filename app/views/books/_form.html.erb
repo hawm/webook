@@ -1,12 +1,13 @@
 <%= form_with(model: book) do |form| %>
   <% if book.errors.any? %>
-    <div style="color: red">
+    <div class="alert alert-danger">
       <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
       <ul>
         <% book.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
   <% end %>
   <div class='row'>
