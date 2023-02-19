@@ -16,10 +16,7 @@
     </li>
     <% end %>
   </ul>
-  <form class='' method='get' action=<%= books_path %>>
-    <input type='search' placeholder='Search...' name='s'
-    class='form-control form-control-sm text-bg-primary'>
-  </form>
+  <%= render 'shared/search'%>
   <div class='px-3'>
     <% if current_user %>
       <div class=''>
