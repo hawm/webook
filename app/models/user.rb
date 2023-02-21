@@ -23,6 +23,6 @@ class User < ApplicationRecord
                        unless: :skip_username_validations
   before_validation { self.username = username.downcase }
 
-  has_many :bookmarks
+  has_many :bookmarks, dependent: :destroy
   has_many :books, through: :bookmarks
 end
