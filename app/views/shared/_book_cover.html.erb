@@ -1,7 +1,8 @@
 <div class='shadow ratio ratio-2x3 border-secondary border-opacity-50 
-border-bottom border-5 rounded bg-secondary bg-opacity-25'>
+border-bottom border-5 rounded bg-secondary bg-opacity-25 position-relative'>
+<%= yield %>
 <%= image_tag src || '200x300.png', 
-        (attrs ||= {}).merge!(class: 'h-auto top-50 start-50 translate-middle
+        (attrs ||= {}).merge!(class: 'position-absolute h-auto top-50 start-50 translate-middle
         border-start border-end', placeholder: (image_path '200x300.png'))  %>
 </div>
 

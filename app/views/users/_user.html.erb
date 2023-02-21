@@ -1,4 +1,9 @@
 <div id="<%= dom_id user %>">
     <h1>User: <%= user.username %></h1>
+    <hr>
+    <h2>Bookmarks</h2>
+    <div class='row row-cols-4 g-2'>
+        <%= render user.books, simple: true %>
+    </div>
 </div>
 

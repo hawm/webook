@@ -3,7 +3,9 @@
     <div>
       <%= link_to book do %>
         <%= render "shared/book_cover", 
-        src: book.cover_image.persisted? ? url_for(book.cover_image): false %>
+        src: book.cover_image.persisted? ? url_for(book.cover_image): false do %>
+          <%= render 'shared/bookmark_star', book: book if controller_name != 'user' %>
+        <% end %>
       <% end %>
       <div class='mx-1'>
         <%= link_to book.name, book, 
@@ -17,7 +19,9 @@
     <div class='row'>
       <div class='col-3'>
         <%= render "shared/book_cover", 
-        src: book.cover_image.present? ? url_for(book.cover_image): false %>
+        src: book.cover_image.present? ? url_for(book.cover_image): false do %>
+                  <%= render 'shared/bookmark_star', book: book%>
+        <% end %>
       </div>
       <div class='col'>
         <h1><%= book.name %></h1>
