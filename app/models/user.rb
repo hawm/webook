@@ -19,7 +19,10 @@ class User < ApplicationRecord
   attr_accessor :skip_username_validations
 
   validates :username, uniqueness: true, length: { minimum: 3, maximum: 10 },
-                       format: { with: /[a-z]/, message: 'only allows letters' },
+                       format: { with: /[a-z\d]/, message: 'only allows letters' },
                        unless: :skip_username_validations
   before_validation { self.username = username.downcase }
+
+  has_many :bookmarks
+  has_many :books, through: :bookmarks
 end
